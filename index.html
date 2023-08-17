@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather and AirQuality App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container py-3">
+        <header>
+            <form class="d-flex centering" role="search">
+                <input class="form-control me-2 input-style" type="search" placeholder="Enter a city"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal text-body-emphasis">Weather and Air Quality of <span
+                        id="city-name"></span></h1>
+                <p class="fs-5 text-body-secondary">Weather condition is <span id="condition"></span> and Air quality is
+                    <span id="air-quality-comment"></span>
+                </p>
+            </div>
+        </header>
+
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col card-size">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Weather</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><small
+                                    class="text-body-secondary fw-light">Temperature is </small><span
+                                    id="temp_c"></span>&deg;C</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Gust is <span id="gust_kph"></span>km/h</li>
+                                <li>Humidity is <span id="humidity"></span>%</li>
+                                <li>Last updated <span id="last_updated"></span></li>
+                                <li>Uv index is <span id="uv"></span></li>
+                                <li>Wind is <span id="wind_kph"></span>km/h</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card-size">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Air Quality</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><small
+                                    class="text-body-secondary fw-light">AQI is </small><span
+                                    id="overall_aqi"></span></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>CO concentration is <span id="CO"></span>ppm</li>
+                                <li>NO2 concentration is <span id="NO2"></span>ppm</li>
+                                <li>O3 concentration is <span id="O3"></span>ppm</li>
+                                <li>PM10 concentration is <span id="PM10"></span>ppm</li>
+                                <li>SO2 concentration is <span id="SO2"></span>ppm</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="display-6 text-center mb-4">Weather and Air Quality of some Famous Cities</h2>
+
+            <div class="table-responsive">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th style="width: auto;"></th>
+                            <th style="width: auto;">Condition</th>
+                            <th style="width: auto;">Gust_kph</th>
+                            <th style="width: auto;">Humidity</th>
+                            <th style="width: auto;">Temp_c</th>
+                            <th style="width: auto;">Uv</th>
+                            <th style="width: auto;">Wind_dir</th>
+                            <th style="width: auto;">Wind_kph</th>
+                            <th style="width: auto;">Last_updated</th>
+                            <th style="width: auto;">AQI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">New York</th>
+                            <td id="ny-condition"></td>
+                            <td id="ny-gust_kph"></td>
+                            <td id="ny-humidity"></td>
+                            <td id="ny-temp_c"></td>
+                            <td id="ny-uv"></td>
+                            <td id="ny-wind_dir"></td>
+                            <td id="ny-wind_kph"></td>
+                            <td id="ny-last_updated"></td>
+                            <td id="ny-overall_aqi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">London</th>
+                            <td id="london-condition">1</td>
+                            <td id="london-gust_kph">2</td>
+                            <td id="london-humidity">3</td>
+                            <td id="london-temp_c">4</td>
+                            <td id="london-uv">5</td>
+                            <td id="london-wind_dir">1</td>
+                            <td id="london-wind_kph">2</td>
+                            <td id="london-last_updated">3</td>
+                            <td id="london-overall_aqi">4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Seoul</th>
+                            <td id="seoul-condition">1</td>
+                            <td id="seoul-gust_kph">2</td>
+                            <td id="seoul-humidity">3</td>
+                            <td id="seoul-temp_c">4</td>
+                            <td id="seoul-uv">5</td>
+                            <td id="seoul-wind_dir">1</td>
+                            <td id="seoul-wind_kph">2</td>
+                            <td id="seoul-last_updated">3</td>
+                            <td id="seoul-overall_aqi">4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Toronto</th>
+                            <td id="toronto-condition">1</td>
+                            <td id="toronto-gust_kph">2</td>
+                            <td id="toronto-humidity">3</td>
+                            <td id="toronto-temp_c">4</td>
+                            <td id="toronto-uv">5</td>
+                            <td id="toronto-wind_dir">1</td>
+                            <td id="toronto-wind_kph">2</td>
+                            <td id="toronto-last_updated">3</td>
+                            <td id="toronto-overall_aqi">4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Barcelona</th>
+                            <td id="barcelona-condition">1</td>
+                            <td id="barcelona-gust_kph">2</td>
+                            <td id="barcelona-humidity">3</td>
+                            <td id="barcelona-temp_c">4</td>
+                            <td id="barcelona-uv">5</td>
+                            <td id="barcelona-wind_dir">1</td>
+                            <td id="barcelona-wind_kph">2</td>
+                            <td id="barcelona-last_updated">3</td>
+                            <td id="barcelona-overall_aqi">4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Osaka</th>
+                            <td id="osaka-condition">1</td>
+                            <td id="osaka-gust_kph">2</td>
+                            <td id="osaka-humidity">3</td>
+                            <td id="osaka-temp_c">4</td>
+                            <td id="osaka-uv">5</td>
+                            <td id="osaka-wind_dir">1</td>
+                            <td id="osaka-wind_kph">2</td>
+                            <td id="osaka-last_updated">3</td>
+                            <td id="osaka-overall_aqi">4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
