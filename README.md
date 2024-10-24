@@ -15,5 +15,3 @@ Html
 css
 Bootstrap
 Javascript
-
-this is a minor change
